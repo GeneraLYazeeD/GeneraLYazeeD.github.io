@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- EDITING GUIDE:
+    1. Search for "REPLACE:" to find every place you should personalize.
+    2. Do not publish a section unless it is true for you right now.
+    3. English text is the default in this file. Arabic text is stored in js/main.js.
+    4. For GitHub Pages, keep this file named index.html in the root of your repository.
+  -->
+  <!-- REPLACE: Update SEO details with your real name, current role, and portfolio URL -->
+  <title>Yazeed Almalki</title>
+  <meta name="description" content="Portfolio of Yazeed Almalki, an IT graduate student focused on building thoughtful digital products and data-driven solutions.">
+  <meta name="keywords" content="Yazeed Almalki, IT graduate student, developer, data analyst, portfolio">
+  <meta property="og:title" content="Yazeed Almalki | IT Graduate Student">
+  <meta property="og:description" content="IT graduate student, developer, and data analyst portfolio.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://placehold.co/1200x630/0A0E27/64FFDA?text=YN+Portfolio">
+  <meta name="theme-color" content="#0A192F">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22><rect width=%2264%22 height=%2264%22 rx=%2216%22 fill=%22%230A192F%22/><text x=%2232%22 y=%2241%22 text-anchor=%22middle%22 font-size=%2227%22 font-family=%22Arial%22 font-weight=%22700%22 fill=%22%2364FFDA%22>YN</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&family=Space+Grotesk:wght@500;600;700&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <!-- REPLACE: Change initials -->
+      <a class="logo" href="#home" aria-label="Go to home" data-i18n-aria="aria.home">YN</a>
+      <nav aria-label="Primary navigation" data-i18n-aria="aria.primaryNav">
+        <ul class="nav-links" id="nav-links">
+          <li><a class="nav-link active" href="#home" data-i18n="nav.home">Home</a></li>
+          <li><a class="nav-link" href="#about" data-i18n="nav.about">About</a></li>
+          <li><a class="nav-link" href="#education" data-i18n="nav.education">Education</a></li>
+          <li><a class="nav-link" href="#skills" data-i18n="nav.skills">Skills</a></li>
+          <li><a class="nav-link" href="#projects" data-i18n="nav.projects">Projects</a></li>
+          <li><a class="nav-link" href="#contact" data-i18n="nav.contact">Contact</a></li>
+          <li class="nav-controls-item">
+            <div class="nav-controls" aria-label="Display controls" data-i18n-aria="aria.displayControls">
+              <button class="control-btn" id="theme-toggle" type="button" aria-label="Switch color mode" data-i18n-aria="aria.themeToggle">🌙</button>
+              <button class="control-btn" id="language-toggle" type="button" aria-label="Switch language" data-i18n-aria="aria.languageToggle">AR</button>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Open navigation" aria-expanded="false" data-i18n-aria="aria.openNav">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <canvas id="particle-canvas" aria-hidden="true"></canvas>
+      <div class="container">
+        <div class="hero-content reveal">
+          <p class="hero-kicker" data-i18n="hero.kicker">Hello, my name is</p>
+          <!-- REPLACE: Your full name -->
+          <h1 data-i18n-html="hero.name">Yazeed<br><span class="accent">Almalki.</span></h1>
+          <p class="hero-role"><span id="typewriter"></span><span class="type-cursor">|</span></p>
+          <!-- REPLACE: Your personal tagline -->
+          <p class="hero-copy" data-i18n="hero.copy">I turn complex ideas into thoughtful digital experiences, combining strong technical foundations with curiosity, clarity, and a drive to keep learning.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects"><span data-i18n="hero.workBtn">Explore My Work</span> <i class="fa-solid fa-arrow-right"></i></a>
+            <!-- REPLACE: Add your real CV link -->
+            <a class="btn btn-outline" href="#contact" data-i18n="hero.connectBtn">Let's Connect</a>
+          </div>
+          <div class="socials" aria-label="Social links" data-i18n-aria="aria.socialLinks">
+            <!-- REPLACE: Add your real social profile URLs -->
+            <a class="social-link" href="https://github.com/" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a class="social-link" href="https://linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a class="social-link" href="mailto:almalkii.yazeed@gmail.com" aria-label="Email" data-i18n-aria="aria.email"><i class="fa-solid fa-envelope"></i></a>
+            <a class="social-link" href="https://x.com/" target="_blank" rel="noopener" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="scroll-cue" data-i18n="hero.scroll">Scroll to explore</div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow" data-i18n="about.eyebrow">01 / About</p>
+          <h2 class="section-title" data-i18n-html="about.title">Curious by nature.<br><span class="accent">Technical by choice.</span></h2>
+        </div>
+        <div class="about-grid">
+          <div class="portrait-wrap reveal">
+            <div class="portrait-ring">
+              <!-- REPLACE: Replace assets/img/profile.jpg with your real profile photo. Keep the alt text descriptive. -->
+              <div class="portrait">
+                <img class="portrait-img" src="assets/img/profile.jpg" alt="Profile photo placeholder for Yazeed Almalki" data-i18n-attr="alt:about.photoAlt" loading="lazy">
+                <span class="portrait-label" data-i18n="about.photoLabel">Replace photo</span>
+              </div>
+            </div>
+            <div class="portrait-dots" aria-hidden="true"></div>
+          </div>
+          <div class="reveal">
+            <div class="info-card glass">
+              <!-- REPLACE: Update all personal details in this card. Also update the Arabic versions in js/main.js. -->
+              <div class="info-row"><span class="info-label" data-i18n="about.nameLabel">Name</span><span class="info-value" data-i18n="about.nameValue">Yazeed Almalki</span></div>
+              <div class="info-row"><span class="info-label" data-i18n="about.degreeLabel">Degree</span><span class="info-value" data-i18n="about.degreeValue">M.Sc. in Information Technology (in progress)</span></div>
+              <div class="info-row"><span class="info-label" data-i18n="about.universityLabel">University</span><span class="info-value" data-i18n="about.universityValue">[University Name]</span></div>
+              <div class="info-row"><span class="info-label" data-i18n="about.cityLabel">Based in</span><span class="info-value" data-i18n="about.cityValue">[City, Saudi Arabia]</span></div>
+              <div class="info-row"><span class="info-label" data-i18n="about.emailLabel">Email</span><span class="info-value">almalkii.yazeed@gmail.com</span></div>
+              <div class="info-row"><span class="info-label" data-i18n="about.interestsLabel">Interests</span><span class="info-value" data-i18n="about.interestsValue">[Your real research or career interests]</span></div>
+              <div class="info-row"><span class="info-label" data-i18n="about.statusLabel">Status</span><span class="info-value status" data-i18n="about.statusValue">Available for internships & collaborations</span></div>
+            </div>
+            <!-- REPLACE: Write a short personal bio. Also update Arabic text in js/main.js. -->
+            <p class="bio" data-i18n="about.bio">I am an IT graduate student interested in the intersection of software, data, and real-world problem solving. I enjoy turning challenging questions into clean, useful systems while building the skills to contribute to ambitious teams.</p>
+            <a class="btn btn-outline" href="#contact"><span data-i18n="about.touchBtn">Get In Touch</span> <i class="fa-regular fa-paper-plane"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="education">
+      <div class="container">
+        <div class="section-head center reveal">
+          <p class="eyebrow" data-i18n="education.eyebrow">02 / Journey</p>
+          <h2 class="section-title" data-i18n-html="education.title">Education & <span class="accent">Activities</span></h2>
+          <p class="section-copy" data-i18n="education.copy">A timeline for your verified education, academic work, internships, volunteer work, or projects. Remove any card that does not apply yet.</p>
+        </div>
+        <div class="timeline">
+          <!-- REPLACE: Keep only real entries. Also update Arabic text in js/main.js if you edit these. -->
+          <article class="timeline-item reveal">
+            <span class="timeline-dot" aria-hidden="true"></span>
+            <div class="timeline-card glass">
+              <div class="timeline-top">
+                <span class="institution-logo"><i class="fa-solid fa-graduation-cap"></i></span>
+                <div><span class="timeline-date" data-i18n="education.mscDate">[Start Year] - Present</span><h3 data-i18n="education.mscTitle">M.Sc. in Information Technology</h3></div>
+              </div>
+              <p><strong data-i18n="education.mscSchool">[University Name]</strong><br><span data-i18n="education.mscDescription">[Write one honest sentence about your current study focus, courses, or thesis plan.]</span></p>
+              <div class="tags"><span class="tag" data-i18n="education.tagGraduate">Graduate Study</span><span class="tag" data-i18n="education.tagIT">Information Technology</span><span class="tag" data-i18n="education.tagProgress">In Progress</span></div>
+            </div>
+          </article>
+          <article class="timeline-item reveal">
+            <span class="timeline-dot" aria-hidden="true"></span>
+            <div class="timeline-card glass">
+              <div class="timeline-top">
+                <span class="institution-logo"><i class="fa-solid fa-user-graduate"></i></span>
+                <div><span class="timeline-date" data-i18n="education.bscDate">[Start Year] - [Graduation Year]</span><h3 data-i18n="education.bscTitle">B.Sc. in [Your Major]</h3></div>
+              </div>
+              <p><strong data-i18n="education.bscSchool">[University Name]</strong><br><span data-i18n="education.bscDescription">[Write one honest sentence about your undergraduate background. Add GPA only if you want to publish it.]</span></p>
+              <div class="tags"><span class="tag" data-i18n="education.tagUndergraduate">Undergraduate</span><span class="tag" data-i18n="education.tagCoursework">Coursework</span><span class="tag" data-i18n="education.tagProjects">Projects</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow" data-i18n="skills.eyebrow">03 / Toolkit</p>
+          <h2 class="section-title" data-i18n-html="skills.title">Skills built through <span class="accent">practice.</span></h2>
+          <p class="section-copy" data-i18n="skills.copy">A growing set of technologies I use to explore ideas, analyze data, and build useful products.</p>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-panel reveal">
+            <h3 data-i18n="skills.core">Core skills</h3>
+            <div class="skill-bars" id="skill-bars">
+              <!-- REPLACE: Add only skills you can discuss in an interview. -->
+              <div class="skill"><div class="skill-meta"><span>HTML / CSS</span><span data-i18n="skills.addPercent">[Add %]</span></div><div class="skill-track"><div class="skill-fill" style="width:0%"></div></div></div>
+              <div class="skill"><div class="skill-meta"><span>Python</span><span data-i18n="skills.addPercent">[Add %]</span></div><div class="skill-track"><div class="skill-fill" style="width:0%"></div></div></div>
+              <div class="skill"><div class="skill-meta"><span>JavaScript</span><span data-i18n="skills.addPercent">[Add %]</span></div><div class="skill-track"><div class="skill-fill" style="width:0%"></div></div></div>
+              <div class="skill"><div class="skill-meta"><span>Java</span><span data-i18n="skills.addPercent">[Add %]</span></div><div class="skill-track"><div class="skill-fill" style="width:0%"></div></div></div>
+              <div class="skill"><div class="skill-meta"><span>SQL</span><span data-i18n="skills.addPercent">[Add %]</span></div><div class="skill-track"><div class="skill-fill" style="width:0%"></div></div></div>
+              <div class="skill"><div class="skill-meta"><span>Git</span><span data-i18n="skills.addPercent">[Add %]</span></div><div class="skill-track"><div class="skill-fill" style="width:0%"></div></div></div>
+              <div class="skill"><div class="skill-meta"><span>Linux</span><span data-i18n="skills.addPercent">[Add %]</span></div><div class="skill-track"><div class="skill-fill" style="width:0%"></div></div></div>
+              <div class="skill"><div class="skill-meta"><span>Machine Learning</span><span data-i18n="skills.addPercent">[Add %]</span></div><div class="skill-track"><div class="skill-fill" style="width:0%"></div></div></div>
+            </div>
+          </div>
+          <div class="skill-panel reveal">
+            <h3 data-i18n="skills.tools">Tools & frameworks</h3>
+            <div class="badge-grid">
+              <!-- REPLACE: Keep only tools you have actually used. Delete unused badges. -->
+              <div class="tech-badge"><i class="fa-brands fa-html5"></i><span data-i18n="skills.tool1">[Tool or Language 1]</span></div>
+              <div class="tech-badge"><i class="fa-brands fa-python"></i><span data-i18n="skills.tool2">[Tool or Language 2]</span></div>
+              <div class="tech-badge"><i class="fa-solid fa-database"></i><span data-i18n="skills.tool3">[Tool or Language 3]</span></div>
+              <div class="tech-badge"><i class="fa-solid fa-code-branch"></i><span data-i18n="skills.tool4">[Tool or Language 4]</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-head center reveal">
+          <p class="eyebrow" data-i18n="projects.eyebrow">04 / Selected work</p>
+          <h2 class="section-title" data-i18n-html="projects.title">Projects with <span class="accent">purpose.</span></h2>
+          <p class="section-copy" data-i18n="projects.copy">Replace these cards with real academic, personal, or course projects. If a project is not ready, delete its card before publishing.</p>
+        </div>
+        <div class="filter-tabs reveal" role="group" aria-label="Filter projects" data-i18n-aria="aria.filterProjects">
+          <button class="filter-btn active" data-filter="all" data-i18n="filters.all">All</button>
+          <button class="filter-btn" data-filter="web" data-i18n="filters.web">Web Dev</button>
+          <button class="filter-btn" data-filter="ai" data-i18n="filters.ai">AI / ML</button>
+          <button class="filter-btn" data-filter="research" data-i18n="filters.research">Research</button>
+          <button class="filter-btn" data-filter="academic" data-i18n="filters.academic">Academic</button>
+        </div>
+        <!-- REPLACE: Update real projects here and in the projects array inside js/main.js. -->
+        <div class="projects-grid">
+          <article class="project-card glass reveal" tabindex="0" data-category="web" data-project-index="0" data-icon="fa-laptop-code">
+            <div class="project-image"><span class="project-number">01</span><i class="fa-solid fa-laptop-code"></i></div>
+            <div class="project-body"><div class="project-top"><h3 class="project-title">[Project Title]</h3><div class="project-links"><a class="project-link" href="#" target="_blank" rel="noopener" aria-label="GitHub project" data-i18n-aria="aria.githubProject"><i class="fa-brands fa-github"></i></a><a class="project-link" href="#" aria-label="Live demo" data-i18n-aria="aria.liveDemo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div></div><p class="project-summary">[Two-line summary of the real project.]</p><div class="tags project-tags"><span class="tag">[Tech 1]</span><span class="tag">[Tech 2]</span><span class="tag">[Tech 3]</span></div></div>
+          </article>
+          <article class="project-card glass reveal" tabindex="0" data-category="ai" data-project-index="1" data-icon="fa-chart-simple">
+            <div class="project-image"><span class="project-number">02</span><i class="fa-solid fa-chart-simple"></i></div>
+            <div class="project-body"><div class="project-top"><h3 class="project-title">[Project Title]</h3><div class="project-links"><a class="project-link" href="#" target="_blank" rel="noopener" aria-label="GitHub project" data-i18n-aria="aria.githubProject"><i class="fa-brands fa-github"></i></a><a class="project-link" href="#" aria-label="Live demo" data-i18n-aria="aria.liveDemo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div></div><p class="project-summary">[Two-line summary of the real project.]</p><div class="tags project-tags"><span class="tag">[Tech 1]</span><span class="tag">[Tech 2]</span><span class="tag">[Tech 3]</span></div></div>
+          </article>
+          <article class="project-card glass reveal" tabindex="0" data-category="research" data-project-index="2" data-icon="fa-cloud-shield">
+            <div class="project-image"><span class="project-number">03</span><i class="fa-solid fa-cloud-shield"></i></div>
+            <div class="project-body"><div class="project-top"><h3 class="project-title">[Project Title]</h3><div class="project-links"><a class="project-link" href="#" target="_blank" rel="noopener" aria-label="GitHub project" data-i18n-aria="aria.githubProject"><i class="fa-brands fa-github"></i></a><a class="project-link" href="#" aria-label="Report or demo" data-i18n-aria="aria.reportDemo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div></div><p class="project-summary">[Two-line summary of the real project.]</p><div class="tags project-tags"><span class="tag">[Tech 1]</span><span class="tag">[Tech 2]</span><span class="tag">[Tech 3]</span></div></div>
+          </article>
+          <article class="project-card glass reveal" tabindex="0" data-category="academic" data-project-index="3" data-icon="fa-database">
+            <div class="project-image"><span class="project-number">04</span><i class="fa-solid fa-database"></i></div>
+            <div class="project-body"><div class="project-top"><h3 class="project-title">[Project Title]</h3><div class="project-links"><a class="project-link" href="#" target="_blank" rel="noopener" aria-label="GitHub project" data-i18n-aria="aria.githubProject"><i class="fa-brands fa-github"></i></a><a class="project-link" href="#" aria-label="Live demo" data-i18n-aria="aria.liveDemo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div></div><p class="project-summary">[Two-line summary of the real project.]</p><div class="tags project-tags"><span class="tag">[Tech 1]</span><span class="tag">[Tech 2]</span><span class="tag">[Tech 3]</span></div></div>
+          </article>
+          <article class="project-card glass reveal" tabindex="0" data-category="web" data-project-index="4" data-icon="fa-wallet">
+            <div class="project-image"><span class="project-number">05</span><i class="fa-solid fa-wallet"></i></div>
+            <div class="project-body"><div class="project-top"><h3 class="project-title">[Project Title]</h3><div class="project-links"><a class="project-link" href="#" target="_blank" rel="noopener" aria-label="GitHub project" data-i18n-aria="aria.githubProject"><i class="fa-brands fa-github"></i></a><a class="project-link" href="#" aria-label="Live demo" data-i18n-aria="aria.liveDemo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div></div><p class="project-summary">[Two-line summary of the real project.]</p><div class="tags project-tags"><span class="tag">[Tech 1]</span><span class="tag">[Tech 2]</span><span class="tag">[Tech 3]</span></div></div>
+          </article>
+          <article class="project-card glass reveal" tabindex="0" data-category="ai academic" data-project-index="5" data-icon="fa-language">
+            <div class="project-image"><span class="project-number">06</span><i class="fa-solid fa-language"></i></div>
+            <div class="project-body"><div class="project-top"><h3 class="project-title">[Project Title]</h3><div class="project-links"><a class="project-link" href="#" target="_blank" rel="noopener" aria-label="GitHub project" data-i18n-aria="aria.githubProject"><i class="fa-brands fa-github"></i></a><a class="project-link" href="#" aria-label="Report or demo" data-i18n-aria="aria.reportDemo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div></div><p class="project-summary">[Two-line summary of the real project.]</p><div class="tags project-tags"><span class="tag">[Tech 1]</span><span class="tag">[Tech 2]</span><span class="tag">[Tech 3]</span></div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow" data-i18n="contact.eyebrow">05 / Contact</p>
+          <h2 class="section-title" data-i18n-html="contact.title">Let's build something <span class="accent">meaningful.</span></h2>
+        </div>
+        <div class="contact-grid">
+          <div class="reveal">
+            <!-- REPLACE: Keep this sentence accurate. -->
+            <p class="contact-copy" data-i18n="contact.copy">I am open to suitable opportunities, academic conversations, and technology projects that match my current skills.</p>
+            <div class="contact-list">
+              <!-- REPLACE: Update your contact information. Also update Arabic text in js/main.js. -->
+              <div class="contact-item"><i class="fa-solid fa-envelope"></i><div><span data-i18n="contact.emailLabel">Email</span><a href="mailto:almalkii.yazeed@gmail.com">almalkii.yazeed@gmail.com</a></div></div>
+              <div class="contact-item"><i class="fa-solid fa-location-dot"></i><div><span data-i18n="contact.locationLabel">Location</span><strong data-i18n="contact.locationValue">[City, Saudi Arabia]</strong></div></div>
+              <div class="contact-item"><i class="fa-solid fa-clock"></i><div><span data-i18n="contact.responseLabel">Response time</span><strong data-i18n="contact.responseValue">Usually within 48 hours</strong></div></div>
+            </div>
+          </div>
+          <!-- REPLACE: Add your Formspree endpoint in the action attribute -->
+          <form class="contact-form glass reveal" id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <div class="form-grid">
+              <div class="form-field"><label for="name" data-i18n="form.name">Name *</label><input id="name" name="name" type="text" required autocomplete="name" placeholder="Your name" data-i18n-placeholder="form.namePlaceholder"></div>
+              <div class="form-field"><label for="email" data-i18n="form.email">Email *</label><input id="email" name="email" type="email" required autocomplete="email" placeholder="you@example.com" data-i18n-placeholder="form.emailPlaceholder"></div>
+              <div class="form-field full"><label for="subject" data-i18n="form.subject">Subject</label><input id="subject" name="subject" type="text" placeholder="What would you like to discuss?" data-i18n-placeholder="form.subjectPlaceholder"></div>
+              <div class="form-field full"><label for="message" data-i18n="form.message">Message *</label><textarea id="message" name="message" required placeholder="Tell me a little about your idea or opportunity..." data-i18n-placeholder="form.messagePlaceholder"></textarea></div>
+            </div>
+            <button class="btn btn-primary form-submit" type="submit"><span data-i18n="form.send">Send Message</span><i class="fa-regular fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <!-- REPLACE: Update name, tagline, social links, and copyright year as needed. -->
+      <p class="footer-name" data-i18n="footer.name">Yazeed Almalki</p>
+      <p class="footer-tagline" data-i18n="footer.tagline">Learning deeply. Building thoughtfully.</p>
+      <div class="socials" aria-label="Social links" data-i18n-aria="aria.socialLinks">
+        <a class="social-link" href="https://github.com/" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a class="social-link" href="https://linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a class="social-link" href="https://x.com/" target="_blank" rel="noopener" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+        <a class="social-link" href="mailto:almalkii.yazeed@gmail.com" aria-label="Email" data-i18n-aria="aria.email"><i class="fa-solid fa-envelope"></i></a>
+      </div>
+      <p class="copyright" data-i18n="footer.copyright">&copy; 2026 Yazeed Almalki. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <button class="back-top" id="back-top" aria-label="Back to top" data-i18n-aria="aria.backTop"><i class="fa-solid fa-arrow-up"></i></button>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <div class="modal" id="project-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-dialog glass">
+      <button class="modal-close" aria-label="Close project details" data-i18n-aria="aria.closeProject"><i class="fa-solid fa-xmark"></i></button>
+      <div class="modal-visual"><i id="modal-icon" class="fa-solid fa-laptop-code"></i></div>
+      <h2 id="modal-title">Project title</h2>
+      <p id="modal-description"></p>
+      <h3 data-i18n="modal.goal">Goal</h3>
+      <p id="modal-goal"></p>
+      <h3 data-i18n="modal.result">Result</h3>
+      <p id="modal-result"></p>
+      <div class="tags" id="modal-tags"></div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/typewriter.js"></script>
+  <script src="js/projects.js"></script>
+</body>
+</html>

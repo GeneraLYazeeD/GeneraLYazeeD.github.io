@@ -1,0 +1,14 @@
+﻿/* Animation-specific styles for the portfolio. */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity .75s ease, transform .75s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.type-cursor { animation: blink .75s infinite; color: var(--accent-cyan); }
+.status::before { animation: pulse 1.8s infinite; }
+.skill-fill.animate { transform: scaleX(1); }
+
+@keyframes blink { 50% { opacity: 0; } }
+@keyframes pulse { 0%, 100% { box-shadow: var(--pulse-shadow-start); } 50% { box-shadow: var(--pulse-shadow-end); } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
+  .reveal { opacity: 1; transform: none; }
+}
