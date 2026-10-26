@@ -94,7 +94,9 @@
     html[lang="ar"] textarea {
       font-family: var(--font-arabic);
     }
-    body.modal-open, body.menu-open { overflow: hidden; }
+    body.menu-open { overflow: hidden; }
+    /* The project modal locks page scroll with inline styles in js/projects.js.
+       This keeps the overlay centered in RTL without changing the page width. */
     ::selection { background: var(--accent-cyan); color: var(--navy); }
     ::-webkit-scrollbar { width: 10px; }
     ::-webkit-scrollbar-track { background: var(--bg-primary); }
@@ -726,4 +728,41 @@
     }
 
 .portrait-img { height: 100%; width: 100%; object-fit: cover; position: relative; z-index: 1; }
+
+/* Optional project screenshots. When no screenshot is set, the existing
+   gradient-and-icon placeholder is used instead. */
+.project-image > i { position: relative; z-index: 1; }
+.project-image::after { z-index: 2; }
+.project-image .project-number { z-index: 3; }
+.project-thumb { height: 100%; inset: 0; object-fit: cover; position: absolute; width: 100%; z-index: 1; }
+
+/* Category badge used by project cards and the project pop-up. */
+[hidden] { display: none !important; }
+.project-category {
+  align-items: center;
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-border);
+  border-radius: 999px;
+  color: var(--accent-cyan);
+  display: inline-flex;
+  font-family: var(--font-display);
+  font-size: .66rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  margin-bottom: 11px;
+  padding: 4px 10px;
+  text-transform: uppercase;
+}
+.project-category.category-entertainment {
+  background: rgba(108, 99, 255, .1);
+  border-color: rgba(108, 99, 255, .32);
+  color: var(--accent-purple);
+}
+html.light-mode .project-category.category-entertainment {
+  background: rgba(91, 92, 226, .08);
+  border-color: rgba(91, 92, 226, .25);
+}
+.modal-category { margin-bottom: 10px; }
+.modal-empty { color: var(--muted); font-style: italic; margin-top: 16px; }
+html[dir="rtl"] .project-category { letter-spacing: 0; }
 

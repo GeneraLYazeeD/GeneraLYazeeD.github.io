@@ -1,536 +1,640 @@
-const translations = {
-  en: {
-    meta: {
-      title: "Yazeed Almalki",
-      description: "Portfolio of Yazeed Almalki, an IT graduate student focused on building thoughtful digital products and data-driven solutions."
-    },
-    aria: {
-      home: "Go to home",
-      primaryNav: "Primary navigation",
-      displayControls: "Display controls",
-      themeToggle: "Switch color mode",
-      languageToggle: "Switch language",
-      openNav: "Open navigation",
-      closeNav: "Close navigation",
-      socialLinks: "Social links",
-      email: "Email",
-      filterProjects: "Filter projects",
-      githubProject: "GitHub project",
-      liveDemo: "Live demo",
-      reportDemo: "Report or demo",
-      backTop: "Back to top",
-      closeProject: "Close project details"
-    },
-    nav: {
-      home: "Home",
-      about: "About",
-      education: "Education",
-      skills: "Skills",
-      projects: "Projects",
-      contact: "Contact"
-    },
-    hero: {
-      kicker: "Hello, my name is",
-      name: 'Yazeed<br><span class="accent">Almalki.</span>',
-      copy: "I turn complex ideas into thoughtful digital experiences, combining strong technical foundations with curiosity, clarity, and a drive to keep learning.",
-      workBtn: "Explore My Work",
-      connectBtn: "Let's Connect",
-      scroll: "Scroll to explore",
-      typewriter: ["IT Graduate Student", "Aspiring Developer", "Building Data Skills"]
-    },
-    about: {
-      eyebrow: "01 / About",
-      title: 'Curious by nature.<br><span class="accent">Technical by choice.</span>',
-      photoAlt: "Profile photo placeholder for Yazeed Almalki",
-      photoLabel: "Replace photo",
-      nameLabel: "Name",
-      nameValue: "Yazeed Almalki",
-      degreeLabel: "Degree",
-      degreeValue: "M.Sc. in Information Technology (in progress)",
-      universityLabel: "University",
-      universityValue: "[University Name]",
-      cityLabel: "Based in",
-      cityValue: "[City, Saudi Arabia]",
-      emailLabel: "Email",
-      interestsLabel: "Interests",
-      interestsValue: "[Your real research or career interests]",
-      statusLabel: "Status",
-      statusValue: "Available for internships & collaborations",
-      bio: "I am an IT graduate student interested in the intersection of software, data, and real-world problem solving. I enjoy turning challenging questions into clean, useful systems while building the skills to contribute to ambitious teams.",
-      touchBtn: "Get In Touch"
-    },
-    education: {
-      eyebrow: "02 / Journey",
-      title: 'Education & <span class="accent">Activities</span>',
-      copy: "A timeline for your verified education, academic work, internships, volunteer work, or projects. Remove any card that does not apply yet.",
-      mscDate: "[Start Year] - Present",
-      mscTitle: "M.Sc. in Information Technology",
-      mscSchool: "[University Name]",
-      mscDescription: "[Write one honest sentence about your current study focus, courses, or thesis plan.]",
-      bscDate: "[Start Year] - [Graduation Year]",
-      bscTitle: "B.Sc. in [Your Major]",
-      bscSchool: "[University Name]",
-      bscDescription: "[Write one honest sentence about your undergraduate background. Add GPA only if you want to publish it.]",
-      tagGraduate: "Graduate Study",
-      tagIT: "Information Technology",
-      tagProgress: "In Progress",
-      tagUndergraduate: "Undergraduate",
-      tagCoursework: "Coursework",
-      tagProjects: "Projects"
-    },
-    skills: {
-      eyebrow: "03 / Toolkit",
-      title: 'Skills built through <span class="accent">practice.</span>',
-      copy: "A growing set of technologies I use to explore ideas, analyze data, and build useful products.",
-      core: "Core skills",
-      tools: "Tools & frameworks",
-      addPercent: "[Add %]",
-      tool1: "[Tool or Language 1]",
-      tool2: "[Tool or Language 2]",
-      tool3: "[Tool or Language 3]",
-      tool4: "[Tool or Language 4]"
-    },
-    projects: {
-      eyebrow: "04 / Selected work",
-      title: 'Projects with <span class="accent">purpose.</span>',
-      copy: "Replace these cards with real academic, personal, or course projects. If a project is not ready, delete its card before publishing.",
-      items: Array.from({ length: 6 }, () => ({
-        title: "[Project Title]",
-        summary: "[Two-line summary of the real project.]",
-        description: "[Write a short real description of what the project does.]",
-        goal: "[Write the real goal of this project.]",
-        result: "[Write the real result, feature, or learning outcome.]",
-        tags: ["[Tech 1]", "[Tech 2]", "[Tech 3]"]
-      }))
-    },
-    filters: {
-      all: "All",
-      web: "Web Dev",
-      ai: "AI / ML",
-      research: "Research",
-      academic: "Academic"
-    },
-    contact: {
-      eyebrow: "05 / Contact",
-      title: 'Let\'s build something <span class="accent">meaningful.</span>',
-      copy: "I am open to suitable opportunities, academic conversations, and technology projects that match my current skills.",
-      emailLabel: "Email",
-      locationLabel: "Location",
-      locationValue: "[City, Saudi Arabia]",
-      responseLabel: "Response time",
-      responseValue: "Usually within 48 hours"
-    },
-    form: {
-      name: "Name *",
-      email: "Email *",
-      subject: "Subject",
-      message: "Message *",
-      namePlaceholder: "Your name",
-      emailPlaceholder: "you@example.com",
-      subjectPlaceholder: "What would you like to discuss?",
-      messagePlaceholder: "Tell me a little about your idea or opportunity...",
-      send: "Send Message",
-      sending: "Sending..."
-    },
-    modal: {
-      goal: "Goal",
-      result: "Result"
-    },
-    footer: {
-      name: "Yazeed Almalki",
-      tagline: "Learning deeply. Building thoughtfully.",
-      copyright: "© 2026 Yazeed Almalki. All rights reserved."
-    },
-    toast: {
-      missingEndpoint: "Add your Formspree endpoint to enable message delivery.",
-      success: "Thanks! Your message has been sent.",
-      error: "Message could not be sent. Please try email instead."
-    }
-  },
-  ar: {
-    meta: {
-      title: "يزيد المالكي",
-      description: "ملف تعريفي ليزيد المالكي، طالب دراسات عليا في تقنية المعلومات مهتم ببناء حلول رقمية وتحليلية مفيدة."
-    },
-    aria: {
-      home: "الانتقال إلى الرئيسية",
-      primaryNav: "التنقل الرئيسي",
-      displayControls: "خيارات العرض",
-      themeToggle: "تبديل وضع الألوان",
-      languageToggle: "تبديل اللغة",
-      openNav: "فتح القائمة",
-      closeNav: "إغلاق القائمة",
-      socialLinks: "روابط التواصل",
-      email: "البريد الإلكتروني",
-      filterProjects: "تصفية المشاريع",
-      githubProject: "مشروع GitHub",
-      liveDemo: "عرض مباشر",
-      reportDemo: "تقرير أو عرض",
-      backTop: "العودة للأعلى",
-      closeProject: "إغلاق تفاصيل المشروع"
-    },
-    nav: {
-      home: "الرئيسية",
-      about: "نبذة",
-      education: "التعليم",
-      skills: "المهارات",
-      projects: "المشاريع",
-      contact: "التواصل"
-    },
-    hero: {
-      kicker: "مرحباً، اسمي",
-      name: "يزيد المالكي",
-      copy: "أحوّل الأفكار المعقدة إلى تجارب رقمية واضحة، مستفيداً من أساس تقني قوي وفضول دائم للتعلم.",
-      workBtn: "استعرض أعمالي",
-      connectBtn: "لنتواصل",
-      scroll: "مرر للاستكشاف",
-      typewriter: ["طالب دراسات عليا في تقنية المعلومات", "مطوّر طموح", "أطوّر مهاراتي في البيانات"]
-    },
-    about: {
-      eyebrow: "01 / نبذة",
-      title: 'فضولي بطبيعتي.<br><span class="accent">وتقني باختياري.</span>',
-      photoAlt: "صورة شخصية مؤقتة ليزيد المالكي",
-      photoLabel: "استبدل الصورة",
-      nameLabel: "الاسم",
-      nameValue: "يزيد المالكي",
-      degreeLabel: "الدرجة",
-      degreeValue: "ماجستير في تقنية المعلومات (قيد الدراسة)",
-      universityLabel: "الجامعة",
-      universityValue: "[اسم الجامعة]",
-      cityLabel: "الموقع",
-      cityValue: "[المدينة، السعودية]",
-      emailLabel: "البريد",
-      interestsLabel: "الاهتمامات",
-      interestsValue: "[اهتماماتك البحثية أو المهنية الحقيقية]",
-      statusLabel: "الحالة",
-      statusValue: "متاح للتدريب والتعاون",
-      bio: "أنا طالب دراسات عليا في تقنية المعلومات، مهتم بالجمع بين البرمجيات والبيانات وحل المشكلات الواقعية. أستمتع بتحويل الأسئلة الصعبة إلى أنظمة واضحة ومفيدة مع تطوير مهاراتي باستمرار.",
-      touchBtn: "تواصل معي"
-    },
-    education: {
-      eyebrow: "02 / المسار",
-      title: 'التعليم و<span class="accent">الأنشطة</span>',
-      copy: "مسار زمني للتعليم والأعمال الأكاديمية أو التطوعية أو المشاريع المؤكدة. احذف أي بطاقة لا تنطبق عليك حالياً.",
-      mscDate: "[سنة البداية] - الآن",
-      mscTitle: "ماجستير في تقنية المعلومات",
-      mscSchool: "[اسم الجامعة]",
-      mscDescription: "[اكتب جملة صادقة عن تركيزك الدراسي الحالي أو مقرراتك أو خطة الرسالة.]",
-      bscDate: "[سنة البداية] - [سنة التخرج]",
-      bscTitle: "بكالوريوس في [تخصصك]",
-      bscSchool: "[اسم الجامعة]",
-      bscDescription: "[اكتب جملة صادقة عن خلفيتك الجامعية. أضف المعدل فقط إذا أردت نشره.]",
-      tagGraduate: "دراسات عليا",
-      tagIT: "تقنية المعلومات",
-      tagProgress: "قيد الدراسة",
-      tagUndergraduate: "مرحلة البكالوريوس",
-      tagCoursework: "مقررات",
-      tagProjects: "مشاريع"
-    },
-    skills: {
-      eyebrow: "03 / الأدوات",
-      title: 'مهارات مبنية عبر <span class="accent">الممارسة.</span>',
-      copy: "مجموعة متنامية من التقنيات التي أستخدمها لاستكشاف الأفكار وتحليل البيانات وبناء منتجات مفيدة.",
-      core: "المهارات الأساسية",
-      tools: "الأدوات والأطر",
-      addPercent: "[أضف النسبة]",
-      tool1: "[أداة أو لغة 1]",
-      tool2: "[أداة أو لغة 2]",
-      tool3: "[أداة أو لغة 3]",
-      tool4: "[أداة أو لغة 4]"
-    },
-    projects: {
-      eyebrow: "04 / أعمال مختارة",
-      title: 'مشاريع ذات <span class="accent">هدف.</span>',
-      copy: "استبدل هذه البطاقات بمشاريع حقيقية أكاديمية أو شخصية أو دراسية. إذا لم يكن المشروع جاهزاً، احذف بطاقته قبل النشر.",
-      items: Array.from({ length: 6 }, () => ({
-        title: "[عنوان المشروع]",
-        summary: "[ملخص قصير للمشروع الحقيقي.]",
-        description: "[اكتب وصفاً حقيقياً قصيراً لما يفعله المشروع.]",
-        goal: "[اكتب الهدف الحقيقي من هذا المشروع.]",
-        result: "[اكتب النتيجة أو الميزة أو ما تعلمته فعلياً.]",
-        tags: ["[تقنية 1]", "[تقنية 2]", "[تقنية 3]"]
-      }))
-    },
-    filters: {
-      all: "الكل",
-      web: "تطوير الويب",
-      ai: "الذكاء الاصطناعي",
-      research: "بحث",
-      academic: "أكاديمي"
-    },
-    contact: {
-      eyebrow: "05 / التواصل",
-      title: 'لنبنِ شيئاً <span class="accent">ذا معنى.</span>',
-      copy: "أنا منفتح على الفرص المناسبة والنقاشات الأكاديمية والمشاريع التقنية التي تناسب مهاراتي الحالية.",
-      emailLabel: "البريد",
-      locationLabel: "الموقع",
-      locationValue: "[المدينة، السعودية]",
-      responseLabel: "وقت الرد",
-      responseValue: "عادة خلال 48 ساعة"
-    },
-    form: {
-      name: "الاسم *",
-      email: "البريد الإلكتروني *",
-      subject: "الموضوع",
-      message: "الرسالة *",
-      namePlaceholder: "اسمك",
-      emailPlaceholder: "you@example.com",
-      subjectPlaceholder: "ما الذي تود مناقشته؟",
-      messagePlaceholder: "اكتب نبذة قصيرة عن فكرتك أو الفرصة...",
-      send: "إرسال الرسالة",
-      sending: "جارٍ الإرسال..."
-    },
-    modal: {
-      goal: "الهدف",
-      result: "النتيجة"
-    },
-    footer: {
-      name: "يزيد المالكي",
-      tagline: "أتعلم بعمق. وأبني بعناية.",
-      copyright: "© 2026 يزيد المالكي. جميع الحقوق محفوظة."
-    },
-    toast: {
-      missingEndpoint: "أضف رابط Formspree لتفعيل إرسال الرسائل.",
-      success: "شكراً لك! تم إرسال رسالتك.",
-      error: "تعذر إرسال الرسالة. يرجى استخدام البريد الإلكتروني بدلاً من ذلك."
-    }
-  }
-};
+/* ============================================================================
+   WEBSITE BEHAVIOUR
+   ----------------------------------------------------------------------------
+   Do not edit personal information in this file. All content lives in
+   js/profile.js. This file reads that data and builds the page, then handles
+   the theme, language switch, navigation, animations, and contact form.
+============================================================================ */
 
-const getTranslation = (language, key) => key.split(".").reduce((value, part) => value?.[part], translations[language]);
-const getCurrentLanguage = () => document.documentElement.lang || "en";
+(() => {
+  "use strict";
 
-const translatePage = language => {
-  const html = document.documentElement;
-  html.lang = language;
-  html.dir = language === "ar" ? "rtl" : "ltr";
+  const data = window.PORTFOLIO_DATA;
 
-  document.title = translations[language].meta.title;
-  document.querySelector('meta[name="description"]')?.setAttribute("content", translations[language].meta.description);
-  document.querySelector('meta[property="og:title"]')?.setAttribute("content", translations[language].meta.title);
-  document.querySelector('meta[property="og:description"]')?.setAttribute("content", translations[language].meta.description);
-
-  document.querySelectorAll("[data-i18n]").forEach(element => {
-    const text = getTranslation(language, element.dataset.i18n);
-    if (text !== undefined) element.textContent = text;
-  });
-
-  document.querySelectorAll("[data-i18n-html]").forEach(element => {
-    const text = getTranslation(language, element.dataset.i18nHtml);
-    if (text !== undefined) element.innerHTML = text;
-  });
-
-  document.querySelectorAll("[data-i18n-placeholder]").forEach(element => {
-    const text = getTranslation(language, element.dataset.i18nPlaceholder);
-    if (text !== undefined) element.setAttribute("placeholder", text);
-  });
-
-  document.querySelectorAll("[data-i18n-aria]").forEach(element => {
-    const text = getTranslation(language, element.dataset.i18nAria);
-    if (text !== undefined) element.setAttribute("aria-label", text);
-  });
-
-  document.querySelectorAll("[data-i18n-attr]").forEach(element => {
-    element.dataset.i18nAttr.split(";").forEach(pair => {
-      const [attr, key] = pair.split(":").map(item => item.trim());
-      const text = getTranslation(language, key);
-      if (attr && text !== undefined) element.setAttribute(attr, text);
-    });
-  });
-
-  document.getElementById("language-toggle").textContent = language === "ar" ? "EN" : "AR";
-  document.dispatchEvent(new CustomEvent("languagechange", { detail: { language } }));
-};
-
-const applyProjectTranslations = language => {
-  const items = translations[language].projects.items;
-  document.querySelectorAll(".project-card").forEach(card => {
-    const project = items[Number(card.dataset.projectIndex)];
-    if (!project) return;
-    card.dataset.title = project.title;
-    card.dataset.description = project.description;
-    card.dataset.goal = project.goal;
-    card.dataset.result = project.result;
-    card.querySelector(".project-title").textContent = project.title;
-    card.querySelector(".project-summary").textContent = project.summary;
-    card.querySelector(".project-tags").innerHTML = project.tags.map(tag => `<span class="tag">${tag}</span>`).join("");
-  });
-};
-
-const setLanguage = language => {
-  localStorage.setItem("portfolioLanguage", language);
-  translatePage(language);
-  applyProjectTranslations(language);
-};
-
-const setTheme = theme => {
-  const isLight = theme === "light";
-  document.documentElement.classList.toggle("light-mode", isLight);
-  document.getElementById("theme-toggle").textContent = isLight ? "☀" : "🌙";
-  localStorage.setItem("portfolioTheme", theme);
-};
-
-window.portfolioI18n = {
-  translations,
-  getCurrentLanguage,
-  getTranslation,
-  setLanguage,
-  applyProjectTranslations
-};
-
-document.addEventListener("DOMContentLoaded", () => {
-  const storedLanguage = localStorage.getItem("portfolioLanguage");
-  const initialLanguage = storedLanguage === "ar" ? "ar" : "en";
-  const storedTheme = localStorage.getItem("portfolioTheme");
-  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  const initialTheme = storedTheme || (prefersDark ? "dark" : "light");
-
-  setTheme(initialTheme);
-  setLanguage(initialLanguage);
-
-  const navbar = document.getElementById("navbar");
-  const navLinks = [...document.querySelectorAll(".nav-link")];
-  const sections = [...document.querySelectorAll("main section[id]")];
-  const menuToggle = document.getElementById("menu-toggle");
-  const navMenu = document.getElementById("nav-links");
-  const backTop = document.getElementById("back-top");
-  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  const handleScroll = () => {
-    navbar.classList.toggle("scrolled", window.scrollY > 40);
-    backTop.classList.toggle("show", window.scrollY > 300);
-    let current = "home";
-    sections.forEach(section => {
-      if (window.scrollY >= section.offsetTop - 180) current = section.id;
-    });
-    navLinks.forEach(link => link.classList.toggle("active", link.getAttribute("href") === `#${current}`));
-  };
-  window.addEventListener("scroll", handleScroll, { passive: true });
-  handleScroll();
-
-  const closeMenu = () => {
-    navMenu.classList.remove("open");
-    document.body.classList.remove("menu-open");
-    menuToggle.setAttribute("aria-expanded", "false");
-    menuToggle.setAttribute("aria-label", getTranslation(getCurrentLanguage(), "aria.openNav"));
-    menuToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
-  };
-
-  menuToggle.addEventListener("click", () => {
-    const open = navMenu.classList.toggle("open");
-    document.body.classList.toggle("menu-open", open);
-    menuToggle.setAttribute("aria-expanded", open);
-    menuToggle.setAttribute("aria-label", getTranslation(getCurrentLanguage(), open ? "aria.closeNav" : "aria.openNav"));
-    menuToggle.innerHTML = `<i class="fa-solid fa-${open ? "xmark" : "bars"}"></i>`;
-  });
-
-  navLinks.forEach(link => link.addEventListener("click", closeMenu));
-  backTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
-
-  document.getElementById("language-toggle").addEventListener("click", () => {
-    setLanguage(getCurrentLanguage() === "ar" ? "en" : "ar");
-  });
-
-  document.getElementById("theme-toggle").addEventListener("click", () => {
-    setTheme(document.documentElement.classList.contains("light-mode") ? "dark" : "light");
-  });
-
-  const revealObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: .13 });
-  document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
-
-  const skillBars = document.getElementById("skill-bars");
-  if (skillBars) {
-    const skillObserver = new IntersectionObserver(entries => {
-      if (entries[0].isIntersecting) {
-        document.querySelectorAll(".skill-fill").forEach((bar, index) => {
-          setTimeout(() => bar.classList.add("animate"), reducedMotion ? 0 : index * 70);
-        });
-        skillObserver.disconnect();
-      }
-    }, { threshold: .25 });
-    skillObserver.observe(skillBars);
+  if (!data) {
+    console.error("Portfolio data was not found. Make sure js/profile.js loads before js/main.js.");
+    return;
   }
 
-  const canvas = document.getElementById("particle-canvas");
-  const ctx = canvas?.getContext("2d");
-  let particles = [];
-  const resizeCanvas = () => {
-    if (!canvas || !ctx) return;
-    canvas.width = window.innerWidth * Math.min(window.devicePixelRatio, 2);
-    canvas.height = canvas.clientHeight * Math.min(window.devicePixelRatio, 2);
-    ctx.setTransform(Math.min(window.devicePixelRatio, 2), 0, 0, Math.min(window.devicePixelRatio, 2), 0, 0);
-    const count = Math.min(70, Math.floor(window.innerWidth / 18));
-    particles = Array.from({ length: count }, () => ({
-      x: Math.random() * window.innerWidth,
-      y: Math.random() * canvas.clientHeight,
-      vx: (Math.random() - .5) * .22,
-      vy: (Math.random() - .5) * .22,
-      r: Math.random() * 1.4 + .4
-    }));
+  const state = {
+    activeFilter: "all"
   };
-  const drawParticles = () => {
-    if (!canvas || !ctx) return;
-    ctx.clearRect(0, 0, window.innerWidth, canvas.clientHeight);
-    particles.forEach((p, i) => {
-      p.x += p.vx; p.y += p.vy;
-      if (p.x < 0 || p.x > window.innerWidth) p.vx *= -1;
-      if (p.y < 0 || p.y > canvas.clientHeight) p.vy *= -1;
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = "rgba(100,255,218,.7)";
-      ctx.fill();
-      particles.slice(i + 1).forEach(q => {
-        const distance = Math.hypot(p.x - q.x, p.y - q.y);
-        if (distance < 120) {
-          ctx.beginPath();
-          ctx.moveTo(p.x, p.y);
-          ctx.lineTo(q.x, q.y);
-          ctx.strokeStyle = `rgba(100,255,218,${.12 * (1 - distance / 120)})`;
-          ctx.stroke();
-        }
+
+  const $ = (selector, root = document) => root.querySelector(selector);
+  const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
+
+  const htmlEscapes = {
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
+  };
+
+  const escapeHtml = value => String(value ?? "").replace(/[&<>"']/g, character => htmlEscapes[character]);
+
+  const getDefaultLanguage = () => data.ui?.[data.settings.defaultLanguage]
+    ? data.settings.defaultLanguage
+    : "en";
+
+  const getCurrentLanguage = () => {
+    const current = document.documentElement.lang;
+    return data.ui?.[current] ? current : getDefaultLanguage();
+  };
+
+  const resolveLocalized = (value, language = getCurrentLanguage()) => {
+    if (value === null || value === undefined) return "";
+    if (typeof value === "string" || typeof value === "number") return String(value);
+    return value[language] ?? value.en ?? Object.values(value)[0] ?? "";
+  };
+
+  const resolveList = (value, language = getCurrentLanguage()) => {
+    if (Array.isArray(value)) return value;
+    if (!value || typeof value !== "object") return [];
+    return value[language] ?? value.en ?? [];
+  };
+
+  const getFullName = (language = getCurrentLanguage()) => {
+    if (data.person.fullName) return resolveLocalized(data.person.fullName, language);
+    const first = resolveLocalized(data.person.firstName, language);
+    const last = resolveLocalized(data.person.lastName, language);
+    return `${first} ${last}`.trim();
+  };
+
+  const personValue = (field, language = getCurrentLanguage()) => {
+    if (field === "email") return data.person.email;
+    if (field === "fullName") return getFullName(language);
+    return resolveLocalized(data.person[field], language);
+  };
+
+  const getUi = (key, language = getCurrentLanguage()) => key
+    .split(".")
+    .reduce((value, part) => value?.[part], data.ui?.[language] ?? data.ui?.en);
+
+  const setText = (id, value) => {
+    const element = document.getElementById(id);
+    if (element) element.textContent = value ?? "";
+  };
+
+  const setHtml = (id, value) => {
+    const element = document.getElementById(id);
+    if (element) element.innerHTML = value ?? "";
+  };
+
+  const applyMeta = language => {
+    const html = document.documentElement;
+    html.lang = language;
+    html.dir = language === "ar" ? "rtl" : "ltr";
+
+    const title = data.meta.title
+      ? resolveLocalized(data.meta.title, language)
+      : getFullName(language);
+    const description = resolveLocalized(data.meta.description, language);
+    const keywords = resolveLocalized(data.meta.keywords, language);
+
+    document.title = title;
+
+    const setMeta = (selector, content) => {
+      const element = $(selector);
+      if (element) element.setAttribute("content", content ?? "");
+    };
+
+    setMeta('meta[name="description"]', description);
+    setMeta('meta[name="keywords"]', keywords);
+    setMeta('meta[property="og:title"]', title);
+    setMeta('meta[property="og:description"]', description);
+    setMeta('meta[property="og:image"]', data.meta.ogImage);
+    setMeta('meta[name="theme-color"]', data.meta.themeColor);
+
+    const initials = data.person.initials || "";
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="16" fill="#0A192F"/><text x="32" y="41" text-anchor="middle" font-size="27" font-family="Arial" font-weight="700" fill="#64FFDA">${escapeHtml(initials)}</text></svg>`;
+    const favicon = $('link[rel="icon"]');
+    if (favicon) favicon.setAttribute("href", `data:image/svg+xml,${encodeURIComponent(svg)}`);
+  };
+
+  const applyUiTranslations = language => {
+    $$("[data-i18n]").forEach(element => {
+      const text = getUi(element.dataset.i18n, language);
+      if (text !== undefined) element.textContent = text;
+    });
+
+    $$("[data-i18n-html]").forEach(element => {
+      const text = getUi(element.dataset.i18nHtml, language);
+      if (text !== undefined) element.innerHTML = text;
+    });
+
+    $$("[data-i18n-placeholder]").forEach(element => {
+      const text = getUi(element.dataset.i18nPlaceholder, language);
+      if (text !== undefined) element.setAttribute("placeholder", text);
+    });
+
+    $$("[data-i18n-aria]").forEach(element => {
+      const text = getUi(element.dataset.i18nAria, language);
+      if (text !== undefined) element.setAttribute("aria-label", text);
+    });
+
+    $$("[data-i18n-attr]").forEach(element => {
+      element.dataset.i18nAttr.split(";").forEach(pair => {
+        const [attribute, key] = pair.split(":").map(item => item.trim());
+        const text = getUi(key, language);
+        if (attribute && text !== undefined) element.setAttribute(attribute, text);
       });
     });
-    if (!reducedMotion) requestAnimationFrame(drawParticles);
-  };
-  resizeCanvas();
-  drawParticles();
-  window.addEventListener("resize", resizeCanvas);
 
-  const form = document.getElementById("contact-form");
-  const submitButton = form?.querySelector(".form-submit");
-  const toast = document.getElementById("toast");
-  const showToast = (message, error = false) => {
-    toast.textContent = message;
-    toast.classList.toggle("error", error);
-    toast.classList.add("show");
-    setTimeout(() => toast.classList.remove("show"), 4200);
+    const languageToggle = document.getElementById("language-toggle");
+    if (languageToggle) languageToggle.textContent = language === "ar" ? "EN" : "AR";
   };
-  form?.addEventListener("submit", async event => {
-    event.preventDefault();
-    const language = getCurrentLanguage();
-    if (form.action.includes("YOUR_FORM_ID")) {
-      showToast(getTranslation(language, "toast.missingEndpoint"), true);
-      return;
+
+  const renderSocials = (containerId, ids, language) => {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    container.innerHTML = (ids ?? data.socials.map(social => social.id)).map(id => {
+      const social = data.socials.find(item => item.id === id);
+      if (!social) return "";
+
+      const label = resolveLocalized(social.label, language);
+      const href = social.type === "email" || social.id === "email"
+        ? `mailto:${data.person.email}`
+        : social.url;
+
+      if (!href) return "";
+
+      const external = href.startsWith("http")
+        ? ' target="_blank" rel="noopener"'
+        : "";
+
+      return `<a class="social-link" href="${escapeHtml(href)}"${external} aria-label="${escapeHtml(label)}"><i class="${escapeHtml(social.icon)}"></i></a>`;
+    }).join("");
+  };
+
+  const renderHero = language => {
+    setText("hero-kicker", resolveLocalized(data.hero.kicker, language));
+    setText("hero-copy", resolveLocalized(data.hero.copy, language));
+
+    const firstName = escapeHtml(resolveLocalized(data.person.firstName, language));
+    const lastName = escapeHtml(resolveLocalized(data.person.lastName, language));
+    const nameHtml = language === "en"
+      ? `${firstName}<br><span class="accent">${lastName}.</span>`
+      : `${firstName} ${lastName}`;
+    setHtml("hero-name", nameHtml);
+
+    setText("hero-primary-label", resolveLocalized(data.hero.primaryButton.label, language));
+    setText("hero-secondary-label", resolveLocalized(data.hero.secondaryButton.label, language));
+
+    const primary = document.getElementById("hero-primary");
+    const secondary = document.getElementById("hero-secondary");
+    if (primary) primary.setAttribute("href", data.hero.primaryButton.href);
+    if (secondary) secondary.setAttribute("href", data.hero.secondaryButton.href);
+
+    setText("scroll-cue", resolveLocalized(data.hero.scroll, language));
+    renderSocials("hero-socials", data.hero.socialIds, language);
+  };
+
+  const renderAbout = language => {
+    setText("about-eyebrow", resolveLocalized(data.about.eyebrow, language));
+    setHtml("about-title", resolveLocalized(data.about.titleHtml, language));
+
+    const photo = document.getElementById("about-photo");
+    if (photo) {
+      if (data.about.photo.src) {
+        photo.setAttribute("src", data.about.photo.src);
+      } else {
+        photo.removeAttribute("src");
+      }
+      photo.setAttribute("alt", resolveLocalized(data.about.photo.alt, language));
     }
-    submitButton.disabled = true;
-    submitButton.innerHTML = `<span>${getTranslation(language, "form.sending")}</span><i class="fa-solid fa-circle-notch fa-spin"></i>`;
-    try {
-      const response = await fetch(form.action, { method: "POST", body: new FormData(form), headers: { Accept: "application/json" } });
-      if (!response.ok) throw new Error("Submission failed");
-      form.reset();
-      showToast(getTranslation(language, "toast.success"));
-    } catch (error) {
-      showToast(getTranslation(language, "toast.error"), true);
-    } finally {
-      submitButton.disabled = false;
-      submitButton.innerHTML = `<span>${getTranslation(getCurrentLanguage(), "form.send")}</span><i class="fa-regular fa-paper-plane"></i>`;
+
+    const photoLabel = document.getElementById("about-photo-label");
+    if (photoLabel) {
+      const labelText = resolveLocalized(data.about.photo.label, language);
+      photoLabel.textContent = labelText;
+      photoLabel.hidden = !labelText;
     }
+
+    const details = document.getElementById("about-details");
+    if (details) {
+      details.innerHTML = data.about.detailRows.map(row => {
+        const value = row.field ? personValue(row.field, language) : resolveLocalized(row.value, language);
+        const extraClass = row.className ? ` ${escapeHtml(row.className)}` : "";
+        return `<div class="info-row"><span class="info-label">${escapeHtml(resolveLocalized(row.label, language))}</span><span class="info-value${extraClass}">${escapeHtml(value)}</span></div>`;
+      }).join("");
+    }
+
+    setText("about-bio", resolveLocalized(data.about.bio, language));
+    setText("about-button-label", resolveLocalized(data.about.button.label, language));
+
+    const button = document.getElementById("about-button");
+    if (button) button.setAttribute("href", data.about.button.href);
+  };
+
+  const renderEducation = language => {
+    setText("education-eyebrow", resolveLocalized(data.education.eyebrow, language));
+    setHtml("education-title", resolveLocalized(data.education.titleHtml, language));
+    setText("education-copy", resolveLocalized(data.education.copy, language));
+
+    const timeline = document.getElementById("education-timeline");
+    if (!timeline) return;
+
+    timeline.innerHTML = data.education.items.map(item => {
+      const tags = resolveList(item.tags, language)
+        .map(tag => `<span class="tag">${escapeHtml(tag)}</span>`)
+        .join("");
+
+      return `<article class="timeline-item reveal">
+        <span class="timeline-dot" aria-hidden="true"></span>
+        <div class="timeline-card glass">
+          <div class="timeline-top">
+            <span class="institution-logo"><i class="${escapeHtml(item.icon || "fa-solid fa-graduation-cap")}"></i></span>
+            <div><span class="timeline-date">${escapeHtml(resolveLocalized(item.date, language))}</span><h3>${escapeHtml(resolveLocalized(item.title, language))}</h3></div>
+          </div>
+          <p><strong>${escapeHtml(resolveLocalized(item.school, language))}</strong><br><span>${escapeHtml(resolveLocalized(item.description, language))}</span></p>
+          <div class="tags">${tags}</div>
+        </div>
+      </article>`;
+    }).join("");
+  };
+
+  const renderSkills = language => {
+    setText("skills-eyebrow", resolveLocalized(data.skills.eyebrow, language));
+    setHtml("skills-title", resolveLocalized(data.skills.titleHtml, language));
+    setText("skills-copy", resolveLocalized(data.skills.copy, language));
+    setText("skills-core-title", resolveLocalized(data.skills.coreTitle, language));
+    setText("skills-tools-title", resolveLocalized(data.skills.toolsTitle, language));
+
+    const bars = document.getElementById("skill-bars");
+    if (bars) {
+      bars.innerHTML = data.skills.bars.map(skill => {
+        const rawPercent = skill.percent;
+        const hasPercent = rawPercent !== null
+          && rawPercent !== undefined
+          && rawPercent !== ""
+          && Number.isFinite(Number(rawPercent));
+        const percent = hasPercent ? Math.min(100, Math.max(0, Number(rawPercent))) : 0;
+        const percentLabel = hasPercent
+          ? `${percent}%`
+          : resolveLocalized(data.skills.addPercent, language);
+
+        return `<div class="skill">
+          <div class="skill-meta"><span>${escapeHtml(resolveLocalized(skill.name, language))}</span><span>${escapeHtml(percentLabel)}</span></div>
+          <div class="skill-track"><div class="skill-fill" style="width:${percent}%"></div></div>
+        </div>`;
+      }).join("");
+    }
+
+    const tools = document.getElementById("skills-tools");
+    if (tools) {
+      tools.innerHTML = data.skills.tools.map(tool => `<div class="tech-badge"><i class="${escapeHtml(tool.icon)}"></i><span>${escapeHtml(resolveLocalized(tool.name, language))}</span></div>`).join("");
+    }
+  };
+
+  const renderProjectFilters = language => {
+    const container = document.getElementById("project-filters");
+    if (!container) return;
+
+    const filterIds = data.projects.filters.map(filter => filter.id);
+    if (!filterIds.includes(state.activeFilter)) state.activeFilter = "all";
+
+    container.innerHTML = data.projects.filters.map(filter => {
+      const active = filter.id === state.activeFilter ? " active" : "";
+      return `<button class="filter-btn${active}" type="button" data-filter="${escapeHtml(filter.id)}">${escapeHtml(resolveLocalized(filter.label, language))}</button>`;
+    }).join("");
+  };
+
+  const renderProjects = language => {
+    setText("projects-eyebrow", resolveLocalized(data.projects.eyebrow, language));
+    setHtml("projects-title", resolveLocalized(data.projects.titleHtml, language));
+    setText("projects-copy", resolveLocalized(data.projects.copy, language));
+
+    renderProjectFilters(language);
+
+    const grid = document.getElementById("projects-grid");
+    if (!grid) return;
+
+    grid.innerHTML = data.projects.items.map((project, index) => {
+      const title = resolveLocalized(project.title, language);
+      const categories = (project.categories ?? []).join(" ");
+      const categoryId = (project.categories ?? []).find(id => id !== "all") || "";
+      const categoryFilter = data.projects.filters.find(filter => filter.id === categoryId);
+      const categoryLabel = categoryFilter ? resolveLocalized(categoryFilter.label, language) : "";
+      const summary = resolveLocalized(project.summary, language);
+      const tags = resolveList(project.tags, language)
+        .map(tag => `<span class="tag">${escapeHtml(tag)}</span>`)
+        .join("");
+
+      const github = project.links?.github;
+      const demo = project.links?.demo;
+      let linkMarkup = "";
+
+      if (github) {
+        linkMarkup += `<a class="project-link" href="${escapeHtml(github)}" target="_blank" rel="noopener" aria-label="${escapeHtml(getUi("aria.githubProject", language))}"><i class="fa-brands fa-github"></i></a>`;
+      }
+
+      if (demo) {
+        const demoLabel = project.demoType === "report"
+          ? getUi("aria.reportDemo", language)
+          : getUi("aria.liveDemo", language);
+        linkMarkup += `<a class="project-link" href="${escapeHtml(demo)}" target="_blank" rel="noopener" aria-label="${escapeHtml(demoLabel)}"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>`;
+      }
+
+      const visual = project.screenshot
+        ? `<img class="project-thumb" src="${escapeHtml(project.screenshot)}" alt="${escapeHtml(title)}" loading="lazy">`
+        : `<i class="${escapeHtml(project.icon || "fa-solid fa-laptop-code")}"></i>`;
+
+      const matches = state.activeFilter === "all" || categories.split(" ").includes(state.activeFilter);
+      const hiddenClass = matches ? "" : " hide";
+      const categoryBadge = categoryLabel
+        ? `<span class="project-category${categoryId ? ` category-${escapeHtml(categoryId)}` : ""}">${escapeHtml(categoryLabel)}</span>`
+        : "";
+
+      return `<article class="project-card glass reveal${hiddenClass}" tabindex="0" data-category="${escapeHtml(categories)}" data-category-id="${escapeHtml(categoryId)}" data-category-label="${escapeHtml(categoryLabel)}" data-project-id="${escapeHtml(project.id)}" data-icon="${escapeHtml(project.icon || "fa-solid fa-laptop-code")}" data-title="${escapeHtml(title)}" data-description="${escapeHtml(resolveLocalized(project.description, language))}" data-goal="${escapeHtml(resolveLocalized(project.goal, language))}" data-result="${escapeHtml(resolveLocalized(project.result, language))}">
+        <div class="project-image${project.screenshot ? " has-image" : ""}"><span class="project-number">${String(index + 1).padStart(2, "0")}</span>${visual}</div>
+        <div class="project-body">
+          ${categoryBadge}
+          <div class="project-top">
+            <h3 class="project-title">${escapeHtml(title)}</h3>
+            ${linkMarkup ? `<div class="project-links">${linkMarkup}</div>` : ""}
+          </div>
+          ${summary ? `<p class="project-summary">${escapeHtml(summary)}</p>` : ""}
+          ${tags ? `<div class="tags project-tags">${tags}</div>` : ""}
+        </div>
+      </article>`;
+    }).join("");
+  };
+
+  const renderContact = language => {
+    setText("contact-eyebrow", resolveLocalized(data.contact.eyebrow, language));
+    setHtml("contact-title", resolveLocalized(data.contact.titleHtml, language));
+    setText("contact-copy", resolveLocalized(data.contact.copy, language));
+
+    const details = document.getElementById("contact-details");
+    if (details) {
+      details.innerHTML = data.contact.details.map(item => {
+        const value = item.field ? personValue(item.field, language) : resolveLocalized(item.value, language);
+        const isEmail = item.kind === "email" || item.field === "email";
+        const href = item.href || (isEmail ? `mailto:${data.person.email}` : "");
+        const content = href
+          ? `<a href="${escapeHtml(href)}">${escapeHtml(value)}</a>`
+          : `<strong>${escapeHtml(value)}</strong>`;
+
+        return `<div class="contact-item"><i class="${escapeHtml(item.icon)}"></i><div><span>${escapeHtml(resolveLocalized(item.label, language))}</span>${content}</div></div>`;
+      }).join("");
+    }
+
+    const form = document.getElementById("contact-form");
+    if (form) form.setAttribute("action", data.contact.formEndpoint || "");
+  };
+
+  const renderFooter = language => {
+    setText("footer-name", getFullName(language));
+    setText("footer-tagline", resolveLocalized(data.footer.tagline, language));
+    setText("footer-copyright", resolveLocalized(data.footer.copyright, language));
+    renderSocials("footer-socials", data.footer.socialIds, language);
+  };
+
+  let revealObserver;
+  let skillObserver;
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const initReveal = () => {
+    revealObserver?.disconnect();
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: .13 });
+
+    revealObserver = observer;
+    $$(".reveal").forEach(element => observer.observe(element));
+  };
+
+  const initSkillAnimation = () => {
+    skillObserver?.disconnect();
+    const skillBars = document.getElementById("skill-bars");
+    if (!skillBars) return;
+
+    const observer = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) {
+        $$(".skill-fill", skillBars).forEach((bar, index) => {
+          setTimeout(() => bar.classList.add("animate"), reducedMotion ? 0 : index * 70);
+        });
+        observer.disconnect();
+      }
+    }, { threshold: .25 });
+
+    skillObserver = observer;
+    observer.observe(skillBars);
+  };
+
+  const renderAll = language => {
+    applyMeta(language);
+    applyUiTranslations(language);
+
+    const initials = data.person.initials || "";
+    setText("brand-logo", initials);
+
+    renderHero(language);
+    renderAbout(language);
+    renderEducation(language);
+    renderSkills(language);
+    renderProjects(language);
+    renderContact(language);
+    renderFooter(language);
+
+    initReveal();
+    initSkillAnimation();
+  };
+
+  const setTheme = theme => {
+    const isLight = theme === "light";
+    document.documentElement.classList.toggle("light-mode", isLight);
+    const toggle = document.getElementById("theme-toggle");
+    if (toggle) toggle.textContent = isLight ? "☀" : "🌙";
+    localStorage.setItem("portfolioTheme", theme);
+  };
+
+  const setLanguage = language => {
+    if (!data.ui?.[language]) return;
+    localStorage.setItem("portfolioLanguage", language);
+    renderAll(language);
+    document.dispatchEvent(new CustomEvent("languagechange", { detail: { language } }));
+  };
+
+  const filterProjects = filter => {
+    state.activeFilter = filter;
+
+    $$(".filter-btn").forEach(button => {
+      button.classList.toggle("active", button.dataset.filter === filter);
+    });
+
+    $$(".project-card").forEach(card => {
+      const matches = filter === "all" || card.dataset.category.split(" ").includes(filter);
+      card.classList.toggle("hide", !matches);
+    });
+  };
+
+  // Used by js/typewriter.js and js/projects.js.
+  window.portfolio = {
+    data,
+    getCurrentLanguage,
+    resolveLocalized,
+    setLanguage,
+    setTheme,
+    filterProjects
+  };
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const storedLanguage = localStorage.getItem("portfolioLanguage");
+    const initialLanguage = data.ui?.[storedLanguage] ? storedLanguage : getDefaultLanguage();
+    const storedTheme = localStorage.getItem("portfolioTheme");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const initialTheme = storedTheme || (prefersDark ? "dark" : "light");
+
+    setTheme(initialTheme);
+    setLanguage(initialLanguage);
+
+    const navbar = document.getElementById("navbar");
+    const navLinks = $$(".nav-link");
+    const sections = $$("main section[id]");
+    const menuToggle = document.getElementById("menu-toggle");
+    const navMenu = document.getElementById("nav-links");
+    const backTop = document.getElementById("back-top");
+
+    const handleScroll = () => {
+      navbar?.classList.toggle("scrolled", window.scrollY > 40);
+      backTop?.classList.toggle("show", window.scrollY > 300);
+      let current = "home";
+      sections.forEach(section => {
+        if (window.scrollY >= section.offsetTop - 180) current = section.id;
+      });
+      navLinks.forEach(link => link.classList.toggle("active", link.getAttribute("href") === `#${current}`));
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+
+    const closeMenu = () => {
+      navMenu?.classList.remove("open");
+      document.body.classList.remove("menu-open");
+      menuToggle?.setAttribute("aria-expanded", "false");
+      if (menuToggle) {
+        menuToggle.setAttribute("aria-label", getUi("aria.openNav"));
+        menuToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+      }
+    };
+
+    menuToggle?.addEventListener("click", () => {
+      const open = navMenu.classList.toggle("open");
+      document.body.classList.toggle("menu-open", open);
+      menuToggle.setAttribute("aria-expanded", open);
+      menuToggle.setAttribute("aria-label", getUi(open ? "aria.closeNav" : "aria.openNav"));
+      menuToggle.innerHTML = `<i class="fa-solid fa-${open ? "xmark" : "bars"}"></i>`;
+    });
+
+    navLinks.forEach(link => link.addEventListener("click", closeMenu));
+    backTop?.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+
+    document.getElementById("language-toggle")?.addEventListener("click", () => {
+      setLanguage(getCurrentLanguage() === "ar" ? "en" : "ar");
+    });
+
+    document.getElementById("theme-toggle")?.addEventListener("click", () => {
+      setTheme(document.documentElement.classList.contains("light-mode") ? "dark" : "light");
+    });
+
+    const canvas = document.getElementById("particle-canvas");
+    const ctx = canvas?.getContext("2d");
+    let particles = [];
+
+    const resizeCanvas = () => {
+      if (!canvas || !ctx) return;
+      canvas.width = window.innerWidth * Math.min(window.devicePixelRatio, 2);
+      canvas.height = canvas.clientHeight * Math.min(window.devicePixelRatio, 2);
+      ctx.setTransform(Math.min(window.devicePixelRatio, 2), 0, 0, Math.min(window.devicePixelRatio, 2), 0, 0);
+      const count = Math.min(70, Math.floor(window.innerWidth / 18));
+      particles = Array.from({ length: count }, () => ({
+        x: Math.random() * window.innerWidth,
+        y: Math.random() * canvas.clientHeight,
+        vx: (Math.random() - .5) * .22,
+        vy: (Math.random() - .5) * .22,
+        r: Math.random() * 1.4 + .4
+      }));
+    };
+
+    const drawParticles = () => {
+      if (!canvas || !ctx) return;
+      ctx.clearRect(0, 0, window.innerWidth, canvas.clientHeight);
+      particles.forEach((particle, index) => {
+        particle.x += particle.vx;
+        particle.y += particle.vy;
+        if (particle.x < 0 || particle.x > window.innerWidth) particle.vx *= -1;
+        if (particle.y < 0 || particle.y > canvas.clientHeight) particle.vy *= -1;
+
+        ctx.beginPath();
+        ctx.arc(particle.x, particle.y, particle.r, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(100,255,218,.7)";
+        ctx.fill();
+
+        particles.slice(index + 1).forEach(other => {
+          const distance = Math.hypot(particle.x - other.x, particle.y - other.y);
+          if (distance < 120) {
+            ctx.beginPath();
+            ctx.moveTo(particle.x, particle.y);
+            ctx.lineTo(other.x, other.y);
+            ctx.strokeStyle = `rgba(100,255,218,${.12 * (1 - distance / 120)})`;
+            ctx.stroke();
+          }
+        });
+      });
+      if (!reducedMotion) requestAnimationFrame(drawParticles);
+    };
+
+    resizeCanvas();
+    drawParticles();
+    window.addEventListener("resize", resizeCanvas);
+
+    const form = document.getElementById("contact-form");
+    const submitButton = form?.querySelector(".form-submit");
+    const toast = document.getElementById("toast");
+
+    const showToast = (message, error = false) => {
+      if (!toast) return;
+      toast.textContent = message;
+      toast.classList.toggle("error", error);
+      toast.classList.add("show");
+      setTimeout(() => toast.classList.remove("show"), 4200);
+    };
+
+    form?.addEventListener("submit", async event => {
+      event.preventDefault();
+      const language = getCurrentLanguage();
+      const endpoint = form.getAttribute("action") || "";
+
+      if (!endpoint || endpoint.includes("YOUR_FORM_ID")) {
+        showToast(getUi("toast.missingEndpoint", language), true);
+        return;
+      }
+
+      submitButton.disabled = true;
+      submitButton.innerHTML = `<span>${escapeHtml(getUi("form.sending", language))}</span><i class="fa-solid fa-circle-notch fa-spin"></i>`;
+
+      try {
+        const response = await fetch(endpoint, {
+          method: "POST",
+          body: new FormData(form),
+          headers: { Accept: "application/json" }
+        });
+        if (!response.ok) throw new Error("Submission failed");
+        form.reset();
+        showToast(getUi("toast.success", language));
+      } catch (error) {
+        showToast(getUi("toast.error", language), true);
+      } finally {
+        submitButton.disabled = false;
+        submitButton.innerHTML = `<span>${escapeHtml(getUi("form.send", getCurrentLanguage()))}</span><i class="fa-regular fa-paper-plane"></i>`;
+      }
+    });
   });
-});
+})();
