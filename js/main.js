@@ -322,20 +322,18 @@
         .map(tag => `<span class="tag">${escapeHtml(tag)}</span>`)
         .join("");
 
-      const github = project.links?.github;
-      const demo = project.links?.demo;
-      let linkMarkup = "";
-
-      if (github) {
-        linkMarkup += `<a class="project-link" href="${escapeHtml(github)}" target="_blank" rel="noopener" aria-label="${escapeHtml(getUi("aria.githubProject", language))}"><i class="fa-brands fa-github"></i></a>`;
-      }
-
-      if (demo) {
-        const demoLabel = project.demoType === "report"
-          ? getUi("aria.reportDemo", language)
-          : getUi("aria.liveDemo", language);
-        linkMarkup += `<a class="project-link" href="${escapeHtml(demo)}" target="_blank" rel="noopener" aria-label="${escapeHtml(demoLabel)}"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>`;
-      }
+      const liveUrl = project.links?.live || project.links?.demo || "";
+      const githubUrl = project.links?.github || "";
+      const liveLabel = getUi("aria.viewLive", language);
+      const sourceLabel = getUi("aria.viewSource", language);
+      const linkMarkup = [
+        liveUrl
+          ? `<a class="project-link project-link-live" href="${escapeHtml(liveUrl)}" target="_blank" rel="noopener noreferrer" aria-label="${escapeHtml(liveLabel)}" data-tooltip="${escapeHtml(liveLabel)}"><i class="fa-solid fa-globe" aria-hidden="true"></i></a>`
+          : `<span class="project-link project-link-live is-disabled" role="link" aria-disabled="true" tabindex="0" aria-label="${escapeHtml(getUi("aria.liveUnavailable", language))}" data-tooltip="${escapeHtml(getUi("aria.liveComingSoon", language))}"><i class="fa-solid fa-globe" aria-hidden="true"></i></span>`,
+        githubUrl
+          ? `<a class="project-link project-link-github" href="${escapeHtml(githubUrl)}" target="_blank" rel="noopener noreferrer" aria-label="${escapeHtml(sourceLabel)}" data-tooltip="${escapeHtml(sourceLabel)}"><i class="fa-brands fa-github" aria-hidden="true"></i></a>`
+          : `<span class="project-link project-link-github is-disabled" role="link" aria-disabled="true" tabindex="0" aria-label="${escapeHtml(getUi("aria.sourceUnavailable", language))}" data-tooltip="${escapeHtml(getUi("aria.sourceComingSoon", language))}"><i class="fa-brands fa-github" aria-hidden="true"></i></span>`
+      ].join("");
 
       const visual = project.screenshot
         ? `<img class="project-thumb" src="${escapeHtml(project.screenshot)}" alt="${escapeHtml(title)}" loading="lazy">`

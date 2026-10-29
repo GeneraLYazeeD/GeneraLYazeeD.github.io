@@ -766,3 +766,81 @@ html.light-mode .project-category.category-entertainment {
 .modal-empty { color: var(--muted); font-style: italic; margin-top: 16px; }
 html[dir="rtl"] .project-category { letter-spacing: 0; }
 
+/* Live website and GitHub icons inside each project card. */
+.project-links { align-items: center; gap: 8px; }
+.project-link {
+  align-items: center;
+  background: var(--control-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 50%;
+  color: var(--text-secondary);
+  display: inline-flex;
+  flex: 0 0 auto;
+  height: 40px;
+  justify-content: center;
+  position: relative;
+  transition: color var(--transition), border-color var(--transition), background var(--transition), transform var(--transition), box-shadow var(--transition);
+  width: 40px;
+  z-index: 5;
+}
+.project-link i { font-size: .95rem; }
+.project-link::after {
+  background: var(--toast-bg);
+  border: 1px solid var(--accent-border);
+  border-radius: 7px;
+  box-shadow: var(--shadow);
+  color: var(--text-soft);
+  content: attr(data-tooltip);
+  font-family: var(--font-body);
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  opacity: 0;
+  padding: 6px 9px;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  text-transform: none;
+  top: calc(100% + 9px);
+  transform: translateY(-4px);
+  transition: opacity var(--transition), transform var(--transition), visibility var(--transition);
+  visibility: hidden;
+  white-space: nowrap;
+  z-index: 12;
+}
+.project-link:hover::after,
+.project-link:focus-visible::after {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+.project-link:hover,
+.project-link:focus-visible {
+  background: var(--accent-soft);
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 18px rgba(100, 255, 218, .14);
+  color: var(--accent-cyan);
+  outline: 0;
+  transform: translateY(-2px);
+}
+.project-link:focus-visible {
+  outline: 2px solid var(--accent-cyan);
+  outline-offset: 2px;
+}
+.project-link.is-disabled {
+  background: transparent;
+  border-style: dashed;
+  color: var(--muted);
+  cursor: not-allowed;
+  opacity: .72;
+}
+.project-link.is-disabled:hover,
+.project-link.is-disabled:focus-visible {
+  background: transparent;
+  border-color: var(--card-border);
+  box-shadow: none;
+  color: var(--muted);
+  transform: none;
+}
+.project-link.is-disabled:focus-visible { outline-color: var(--muted); }
+

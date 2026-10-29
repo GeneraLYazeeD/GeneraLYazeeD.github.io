@@ -368,8 +368,8 @@ window.PORTFOLIO_DATA = {
                  "All". Use ["web", "ai"] to show it in both filters.
      screenshot: "" for the gradient icon placeholder, or a path such as
                  "assets/img/projects/my-project.jpg".
-     links: set github/demo to "" to hide that button.
-     demoType: "live" for a live demo, "report" for a report or case study.
+     links: set live/github to "" to show that icon in a disabled
+            "link coming soon" state. Add the real URL to activate it.
      icon: Font Awesome classes used in the card and pop-up.
      ========================================================================== */
   projects: {
@@ -399,8 +399,7 @@ window.PORTFOLIO_DATA = {
         categories: ["academic"],
         icon: "fa-solid fa-route",
         screenshot: "",
-        links: { github: "", demo: "" },
-        demoType: "live",
+        links: { github: "", live: "" },
         title: {
           en: "Hajj/Umrah Plan Assistant",
           ar: "مساعد تخطيط الحج والعمرة"
@@ -416,8 +415,7 @@ window.PORTFOLIO_DATA = {
         categories: ["entertainment"],
         icon: "fa-solid fa-futbol",
         screenshot: "",
-        links: { github: "", demo: "" },
-        demoType: "live",
+        links: { github: "", live: "" },
         title: {
           en: "Final Whistle (FIFA World Cup 2026)",
           ar: "صافرة النهاية (كأس العالم FIFA 2026)"
@@ -433,8 +431,7 @@ window.PORTFOLIO_DATA = {
         categories: ["entertainment"],
         icon: "fa-solid fa-tablet-screen-button",
         screenshot: "",
-        links: { github: "", demo: "" },
-        demoType: "live",
+        links: { github: "", live: "" },
         title: {
           en: "Lawh",
           ar: "لوح"
@@ -538,8 +535,12 @@ window.PORTFOLIO_DATA = {
         email: "Email",
         filterProjects: "Filter projects",
         githubProject: "GitHub project",
-        liveDemo: "Live demo",
-        reportDemo: "Report or demo",
+        viewLive: "View Live Project",
+        viewSource: "View Source Code",
+        liveComingSoon: "Live link coming soon",
+        sourceComingSoon: "Source link coming soon",
+        liveUnavailable: "Live project link not available yet",
+        sourceUnavailable: "Source code link not available yet",
         backTop: "Back to top",
         closeProject: "Close project details"
       },
@@ -587,9 +588,13 @@ window.PORTFOLIO_DATA = {
         email: "البريد الإلكتروني",
         filterProjects: "تصفية المشاريع",
         githubProject: "مشروع GitHub",
-        liveDemo: "عرض مباشر",
-        reportDemo: "تقرير أو عرض",
-        backTop: "العودة للأعلى",
+        viewLive: "عرض الموقع المباشر",
+        viewSource: "عرض الكود المصدري",
+        liveComingSoon: "رابط الموقع المباشر قريباً",
+        sourceComingSoon: "رابط الكود المصدري قريباً",
+        liveUnavailable: "رابط الموقع المباشر غير متوفر بعد",
+        sourceUnavailable: "رابط الكود المصدري غير متوفر بعد",
+        backTop: "العودة إلى الأعلى",
         closeProject: "إغلاق تفاصيل المشروع"
       },
       form: {
