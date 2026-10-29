@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- =========================================================================
+       CONTENT IS MANAGED IN js/profile.js
+       -------------------------------------------------------------------------
+       This file controls the page structure only. To update your name, bio,
+       projects, skills, education, links, or contact details, edit
+       js/profile.js. Do not type personal content into this file: the website
+       fills these sections from profile.js automatically.
+       ========================================================================= -->
+  <title>Portfolio</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta property="og:title" content="">
+  <meta property="og:description" content="">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="">
+  <meta name="theme-color" content="#0A192F">
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&family=Space+Grotesk:wght@500;600;700&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css?v=20261026-4">
+  <link rel="stylesheet" href="css/animations.css?v=20261026-4">
+</head>
+<body>
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a class="logo" href="#home" aria-label="Go to home" data-i18n-aria="aria.home"><span id="brand-logo"></span></a>
+      <nav aria-label="Primary navigation" data-i18n-aria="aria.primaryNav">
+        <ul class="nav-links" id="nav-links">
+          <li><a class="nav-link active" href="#home" data-i18n="nav.home">Home</a></li>
+          <li><a class="nav-link" href="#about" data-i18n="nav.about">About</a></li>
+          <li><a class="nav-link" href="#education" data-i18n="nav.education">Education</a></li>
+          <li><a class="nav-link" href="#skills" data-i18n="nav.skills">Skills</a></li>
+          <li><a class="nav-link" href="#projects" data-i18n="nav.projects">Projects</a></li>
+          <li><a class="nav-link" href="#contact" data-i18n="nav.contact">Contact</a></li>
+          <li class="nav-controls-item">
+            <div class="nav-controls" aria-label="Display controls" data-i18n-aria="aria.displayControls">
+              <button class="control-btn" id="theme-toggle" type="button" aria-label="Switch color mode" data-i18n-aria="aria.themeToggle">🌙</button>
+              <button class="control-btn" id="language-toggle" type="button" aria-label="Switch language" data-i18n-aria="aria.languageToggle">AR</button>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Open navigation" aria-expanded="false" data-i18n-aria="aria.openNav">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <canvas id="particle-canvas" aria-hidden="true"></canvas>
+      <div class="container">
+        <div class="hero-content reveal">
+          <p class="hero-kicker" id="hero-kicker"></p>
+          <h1 id="hero-name"></h1>
+          <p class="hero-role"><span id="typewriter"></span><span class="type-cursor">|</span></p>
+          <p class="hero-copy" id="hero-copy"></p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" id="hero-primary" href="#projects"><span id="hero-primary-label"></span> <i class="fa-solid fa-arrow-right"></i></a>
+            <a class="btn btn-outline" id="hero-secondary" href="#contact"><span id="hero-secondary-label"></span></a>
+          </div>
+          <div class="socials" id="hero-socials" aria-label="Social links" data-i18n-aria="aria.socialLinks"></div>
+        </div>
+      </div>
+      <div class="scroll-cue" id="scroll-cue"></div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow" id="about-eyebrow"></p>
+          <h2 class="section-title" id="about-title"></h2>
+        </div>
+        <div class="about-grid">
+          <div class="portrait-wrap reveal">
+            <div class="portrait-ring">
+              <div class="portrait">
+                <img class="portrait-img" id="about-photo" alt="" loading="lazy">
+                <span class="portrait-label" id="about-photo-label"></span>
+              </div>
+            </div>
+            <div class="portrait-dots" aria-hidden="true"></div>
+          </div>
+          <div class="reveal">
+            <div class="info-card glass" id="about-details"></div>
+            <p class="bio" id="about-bio"></p>
+            <a class="btn btn-outline" id="about-button" href="#contact"><span id="about-button-label"></span> <i class="fa-regular fa-paper-plane"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="education">
+      <div class="container">
+        <div class="section-head center reveal">
+          <p class="eyebrow" id="education-eyebrow"></p>
+          <h2 class="section-title" id="education-title"></h2>
+          <p class="section-copy" id="education-copy"></p>
+        </div>
+        <div class="timeline" id="education-timeline"></div>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow" id="skills-eyebrow"></p>
+          <h2 class="section-title" id="skills-title"></h2>
+          <p class="section-copy" id="skills-copy"></p>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-panel reveal">
+            <h3 id="skills-core-title"></h3>
+            <div class="skill-bars" id="skill-bars"></div>
+          </div>
+          <div class="skill-panel reveal">
+            <h3 id="skills-tools-title"></h3>
+            <div class="badge-grid" id="skills-tools"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-head center reveal">
+          <p class="eyebrow" id="projects-eyebrow"></p>
+          <h2 class="section-title" id="projects-title"></h2>
+          <p class="section-copy" id="projects-copy"></p>
+        </div>
+        <div class="filter-tabs reveal" id="project-filters" role="group" aria-label="Filter projects" data-i18n-aria="aria.filterProjects"></div>
+        <div class="projects-grid" id="projects-grid"></div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow" id="contact-eyebrow"></p>
+          <h2 class="section-title" id="contact-title"></h2>
+        </div>
+        <div class="contact-grid">
+          <div class="reveal">
+            <p class="contact-copy" id="contact-copy"></p>
+            <div class="contact-list" id="contact-details"></div>
+          </div>
+          <form class="contact-form glass reveal" id="contact-form" action="" method="POST">
+            <div class="form-grid">
+              <div class="form-field"><label for="name" data-i18n="form.name">Name *</label><input id="name" name="name" type="text" required autocomplete="name" placeholder="Your name" data-i18n-placeholder="form.namePlaceholder"></div>
+              <div class="form-field"><label for="email" data-i18n="form.email">Email *</label><input id="email" name="email" type="email" required autocomplete="email" placeholder="you@example.com" data-i18n-placeholder="form.emailPlaceholder"></div>
+              <div class="form-field full"><label for="subject" data-i18n="form.subject">Subject</label><input id="subject" name="subject" type="text" placeholder="What would you like to discuss?" data-i18n-placeholder="form.subjectPlaceholder"></div>
+              <div class="form-field full"><label for="message" data-i18n="form.message">Message *</label><textarea id="message" name="message" required placeholder="Tell me a little about your idea or opportunity..." data-i18n-placeholder="form.messagePlaceholder"></textarea></div>
+            </div>
+            <button class="btn btn-primary form-submit" type="submit"><span data-i18n="form.send">Send Message</span><i class="fa-regular fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-name" id="footer-name"></p>
+      <p class="footer-tagline" id="footer-tagline"></p>
+      <div class="socials" id="footer-socials" aria-label="Social links" data-i18n-aria="aria.socialLinks"></div>
+      <p class="copyright" id="footer-copyright"></p>
+    </div>
+  </footer>
+
+  <button class="back-top" id="back-top" aria-label="Back to top" data-i18n-aria="aria.backTop"><i class="fa-solid fa-arrow-up"></i></button>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <div class="modal" id="project-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-dialog glass">
+      <button class="modal-close" aria-label="Close project details" data-i18n-aria="aria.closeProject"><i class="fa-solid fa-xmark"></i></button>
+      <div class="modal-visual"><i id="modal-icon" class="fa-solid fa-laptop-code"></i></div>
+      <span class="project-category modal-category" id="modal-category" hidden></span>
+      <h2 id="modal-title"></h2>
+      <p id="modal-description" hidden></p>
+      <h3 id="modal-goal-title" data-i18n="modal.goal" hidden>Goal</h3>
+      <p id="modal-goal" hidden></p>
+      <h3 id="modal-result-title" data-i18n="modal.result" hidden>Result</h3>
+      <p id="modal-result" hidden></p>
+      <p class="modal-empty" id="modal-empty" hidden></p>
+      <div class="tags" id="modal-tags" hidden></div>
+    </div>
+  </div>
+
+  <script src="js/profile.js?v=20261026-4"></script>
+  <script src="js/main.js?v=20261026-4"></script>
+  <script src="js/typewriter.js?v=20261026-4"></script>
+  <script src="js/projects.js?v=20261026-4"></script>
+</body>
+</html>
